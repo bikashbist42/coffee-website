@@ -1,0 +1,119 @@
+<?php
+session_start();
+
+require_once './databaseConnection.php';
+
+//Getting user fields
+
+$_SESSION['orderName'] = $_POST['orderName'];
+$_SESSION['orderPrice'] = $_POST['orderPrice'];
+
+$email = $_POST['email'];
+$shippingAddress= $_POST['shippingAddress'];
+$firstName =  $_POST['firstName'];
+$lastName = $_POST['lastName'];
+$phoneNumber =  $_POST['phoneNumber'];
+$country = $_POST['country'];
+$city = $_POST['city'];
+$state =  $_POST['state'];
+$orderName =  $_POST['orderName'];
+$orderPrice =  $_POST['orderPrice'];
+$zipCode = $_POST['zipCode'];
+
+
+//If only when user submits using submit button
+if (isset($_POST['submit'])) {
+
+try{
+
+//if($email && $shippingAddress && $firstName && $lastName && $phoneNumber && $country && $state && $city && $zipCode) {
+
+//Creating Order With Customer Details
+
+/*$query = "INSERT INTO `p user`( Email, ShippingAddress, FirstName, LastName, PhoneNumber, Country, State, ZipCode, orderName, orderPrice) 
+VALUES ('$email', '$shippingAddress', '$firstName', '$lastName', '$phoneNumber', '$country', '$state',
+ '$zipCode', '$orderName', '$orderPrice')";
+
+$result = mysqli_query//($conn, $query );
+
+if //(mysqli_num_rows($result)) {
+    header//('location : ./user.php?success=productordered');
+//}
+*/
+
+echo 'Data Saved';
+
+
+//}
+
+
+}
+
+catch (Exception $err){
+    header('location : ./user.php?error=productnotordered');
+  echo $err;
+}
+
+
+
+
+
+}
+
+else {
+    header('location : ./user.php?error=emptyfields');
+}
+
+
+
+
+
+try{
+
+
+//Creating Order With Customer Details
+
+/*$query = "INSERT INTO `p user`( Email, ShippingAddress, FirstName, LastName, PhoneNumber, Country, State, ZipCode, orderName, orderPrice) 
+VALUES ('$email', '$shippingAddress', '$firstName', '$lastName', '$phoneNumber', '$country', '$state',
+ '$zipCode', '$orderName', '$orderPrice')";
+
+$result = mysqli_query//($conn, $query );
+
+if //(mysqli_num_rows($result)) {
+    header//('location : ./user.php?success=productordered');
+//}
+*/
+
+echo 'Data Saved';
+
+
+//}
+
+$_SESSION['orderName'] = $_POST['orderName'];
+$_SESSION['orderPrice'] = $_POST['orderPrice'];
+
+
+
+//If only when user submits using submit button
+if (isset($_POST['submit'])) {
+
+try {
+
+    echo 'Works';
+    header('location : ./user.php?error=productordered');
+}
+
+
+
+
+catch (Exception $err){
+    header('location : ./user.php?error=productnotordered');
+  echo $err;
+}
+
+
+}
+
+else {
+    header('location : ./user.php?error=emptyfields');
+}
